@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="[NOMBRE_NEGOCIO] — [TAGLINE]. Clínica de fisioterapia en Valencia.">
+<title>[NOMBRE_NEGOCIO] — Clínica de Fisioterapia</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+:root{
+  --primary:#003566;--accent:#48cae4;--bg:#ffffff;
+  --text:#1a2a3a;--muted:#6a7a8a;--card:#f7fbfe;
+  --border:rgba(72,202,228,.2);--accent-light:#caf0f8;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+
+nav{position:fixed;top:0;width:100%;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1rem 5%;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+nav .logo{font-size:1.3rem;color:var(--primary);font-weight:800}
+nav ul{list-style:none;display:flex;gap:2rem}
+nav a{text-decoration:none;color:var(--muted);font-size:.85rem;font-weight:500;transition:color .3s}
+nav a:hover{color:var(--accent)}
+
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:url('https://source.unsplash.com/1200x600/?physiotherapy,clinic,health') center/cover no-repeat}
+.hero::before{content:'';position:absolute;inset:0;background:rgba(0,53,102,.65)}
+.hero-content{position:relative;z-index:2;padding:1rem;max-width:800px}
+.hero h1{font-size:clamp(2.4rem,5.5vw,4.2rem);font-weight:800;color:#fff;margin-bottom:.5rem;animation:fadeDown .8s ease-out}
+.hero .tagline{font-size:clamp(1rem,1.8vw,1.2rem);color:rgba(255,255,255,.7);font-weight:300;margin-bottom:1.5rem;animation:fadeDown 1s ease-out .2s both}
+.hero .cta{display:inline-block;padding:.85rem 2.5rem;background:var(--accent);color:var(--primary);font-weight:700;text-decoration:none;border-radius:50px;font-size:.85rem;transition:transform .3s,box-shadow .3s;animation:fadeDown 1.2s ease-out .4s both}
+.hero .cta:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(72,202,228,.4)}
+.rating-badge{margin-top:1.5rem;color:rgba(255,255,255,.7);font-size:.9rem;animation:fadeDown 1.4s ease-out .6s both}
+.rating-badge .stars{color:var(--accent)}
+
+/* TRUST BADGES */
+.trust-row{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;padding:3rem 5%;background:var(--card);border-bottom:1px solid var(--border)}
+.trust-badge{text-align:center;min-width:140px}
+.trust-badge .number{font-size:2.4rem;font-weight:800;color:var(--primary);line-height:1}
+.trust-badge .unit{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-top:.3rem;font-weight:600}
+.trust-badge .number span{color:var(--accent)}
+
+section{padding:5rem 5%}
+.stitle{font-size:clamp(1.8rem,3vw,2.5rem);text-align:center;margin-bottom:.5rem;font-weight:800;color:var(--primary)}
+.ssub{text-align:center;color:var(--muted);margin-bottom:3rem;font-size:.95rem}
+
+.servicios{background:var(--bg)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:1100px;margin:0 auto}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2.5rem 2rem;text-align:center;transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-5px);box-shadow:0 10px 35px rgba(72,202,228,.12)}
+.card-icon{font-size:2.4rem;margin-bottom:1rem}
+.card h3{font-size:1.15rem;margin-bottom:.7rem;color:var(--primary);font-weight:700}
+.card p{color:var(--muted);font-size:.92rem;line-height:1.6}
+
+.galeria{background:var(--card)}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:1100px;margin:0 auto}
+.gallery-grid img{width:100%;height:280px;object-fit:cover;border-radius:12px;transition:transform .4s}
+.gallery-grid img:hover{transform:scale(1.03)}
+
+.sobre-nosotros{background:var(--bg)}
+.about-wrap{max-width:800px;margin:0 auto;text-align:center}
+.about-wrap p{color:var(--muted);margin-bottom:1.2rem;font-size:1.05rem}
+
+.contacto{background:var(--accent-light)}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;max-width:900px;margin:0 auto}
+.contact-item{text-align:center;padding:2rem;background:#fff;border-radius:16px;box-shadow:0 2px 15px rgba(0,0,0,.05)}
+.contact-item .label{color:var(--accent);font-weight:700;text-transform:uppercase;font-size:.75rem;letter-spacing:2px;margin-bottom:.5rem}
+.contact-item .value{font-size:1.1rem;font-weight:500}
+.contact-item a{color:var(--text);text-decoration:none}
+.contact-item a:hover{color:var(--accent)}
+
+footer{text-align:center;padding:2.5rem 5%;background:var(--primary);color:rgba(255,255,255,.45);font-size:.85rem}
+
+@keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes countUp{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}
+@media(max-width:768px){nav ul{display:none}.gallery-grid{grid-template-columns:1fr}section{padding:3.5rem 6%}.trust-row{gap:1.5rem}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">✚ [NOMBRE_NEGOCIO]</div>
+  <ul>
+    <li><a href="#servicios">Tratamientos</a></li>
+    <li><a href="#galeria">Instalaciones</a></li>
+    <li><a href="#sobre-nosotros">Equipo</a></li>
+    <li><a href="#contacto">Cita</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>[NOMBRE_NEGOCIO]</h1>
+    <p class="tagline">[TAGLINE]</p>
+    <a href="#contacto" class="cta">Pide Tu Cita</a>
+    <div class="rating-badge"><span class="stars">★★★★★</span> [RATING] — [NUM_REVIEWS] reseñas en Google</div>
+  </div>
+</section>
+
+<div class="trust-row">
+  <div class="trust-badge"><div class="number">15<span>+</span></div><div class="unit">Años de experiencia</div></div>
+  <div class="trust-badge"><div class="number">3.200<span>+</span></div><div class="unit">Pacientes tratados</div></div>
+  <div class="trust-badge"><div class="number">4</div><div class="unit">Fisioterapeutas colegiados</div></div>
+  <div class="trust-badge"><div class="number">98<span>%</span></div><div class="unit">Satisfacción pacientes</div></div>
+</div>
+
+<section class="servicios" id="servicios">
+  <h2 class="stitle">Tratamientos</h2>
+  <p class="ssub">Fisioterapia avanzada con enfoque personalizado</p>
+  <div class="cards">
+    <div class="card"><div class="card-icon">🦴</div><h3>Fisioterapia Traumatológica</h3><p>Recuperación de lesiones musculares, articulares y postquirúrgicas. Plan de tratamiento individualizado con seguimiento continuo.</p></div>
+    <div class="card"><div class="card-icon">⚡</div><h3>Punción Seca y EPI</h3><p>Técnicas invasivas para el tratamiento de puntos gatillo, tendinopatías y dolor miofascial crónico. Resultados desde la primera sesión.</p></div>
+    <div class="card"><div class="card-icon">🧘</div><h3>Fisio Deportiva</h3><p>Prevención y recuperación de lesiones deportivas. Readaptación al ejercicio y planes de entrenamiento terapéutico supervisado.</p></div>
+  </div>
+</section>
+
+<section class="galeria" id="galeria">
+  <h2 class="stitle">Instalaciones</h2>
+  <p class="ssub">Espacios diseñados para tu recuperación</p>
+  <div class="gallery-grid">
+    <img src="https://source.unsplash.com/600x400/?physiotherapy,treatment" alt="Sala de tratamiento" loading="lazy">
+    <img src="https://source.unsplash.com/600x400/?clinic,modern,interior" alt="Recepción clínica" loading="lazy">
+    <img src="https://source.unsplash.com/600x400/?exercise,rehabilitation" alt="Zona de ejercicios" loading="lazy">
+  </div>
+</section>
+
+<section class="sobre-nosotros" id="sobre-nosotros">
+  <h2 class="stitle">Nuestro Equipo</h2>
+  <p class="ssub">Espacio claro, manos expertas</p>
+  <div class="about-wrap">
+    <p>Somos un equipo de fisioterapeutas colegiados con formación continua en las técnicas más avanzadas. Cada paciente recibe un diagnóstico detallado y un plan de tratamiento adaptado a sus objetivos.</p>
+    <p>Nuestra clínica está equipada con tecnología de última generación en un ambiente cálido y profesional. Porque tu recuperación merece el mejor entorno posible.</p>
+  </div>
+</section>
+
+<section class="contacto" id="contacto">
+  <h2 class="stitle">Pide Cita</h2>
+  <p class="ssub">Primera consulta valorativa sin compromiso</p>
+  <div class="contact-grid">
+    <div class="contact-item"><div class="label">Teléfono</div><div class="value"><a href="tel:[TELEFONO]">[TELEFONO]</a></div></div>
+    <div class="contact-item"><div class="label">Dirección</div><div class="value">[DIRECCION]</div></div>
+    <div class="contact-item"><div class="label">Horario</div><div class="value">Lun–Vie: 9:00 – 20:00</div></div>
+  </div>
+</section>
+
+<footer><p>&copy; 2025 [NOMBRE_NEGOCIO]. Valencia, España.</p></footer>
+<script>
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}})},{threshold:.15});
+document.querySelectorAll('.card,.gallery-grid img,.contact-item,.trust-badge').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(30px)';el.style.transition='opacity .6s ease,transform .6s ease';obs.observe(el)});
+</script>
+</body>
+</html>

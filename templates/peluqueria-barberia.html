@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="[NOMBRE_NEGOCIO] — [TAGLINE]. Peluquería y barbería en Valencia.">
+<title>[NOMBRE_NEGOCIO] — Peluquería &amp; Barbería</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Raleway:wght@300;400;600;700&display=swap');
+:root{
+  --primary:#0d0d0d;--accent:#c9a84c;--bg:#f8f8f8;
+  --text:#1a1a1a;--muted:#666;--card:#fff;
+  --border:rgba(201,168,76,.3);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Raleway',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+
+nav{position:fixed;top:0;width:100%;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1rem 5%;background:rgba(13,13,13,.96);backdrop-filter:blur(10px)}
+nav .logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--accent);font-weight:700;letter-spacing:2px;text-transform:uppercase}
+nav ul{list-style:none;display:flex;gap:2rem}
+nav a{text-decoration:none;color:rgba(255,255,255,.6);font-size:.85rem;letter-spacing:1px;text-transform:uppercase;transition:color .3s}
+nav a:hover{color:var(--accent)}
+
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:url('https://source.unsplash.com/1200x600/?barbershop,hairstyle,salon') center/cover no-repeat}
+.hero::before{content:'';position:absolute;inset:0;background:rgba(13,13,13,.7)}
+.hero-content{position:relative;z-index:2;padding:1rem;max-width:800px}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:700;color:#fff;letter-spacing:3px;text-transform:uppercase;margin-bottom:.5rem;animation:fadeDown .8s ease-out}
+.hero .tagline{font-size:clamp(1rem,1.8vw,1.2rem);color:rgba(255,255,255,.6);font-weight:300;letter-spacing:2px;margin-bottom:1.5rem;animation:fadeDown 1s ease-out .2s both}
+.hero .cta{display:inline-block;padding:.85rem 2.5rem;border:1px solid var(--accent);color:var(--accent);font-weight:600;text-decoration:none;letter-spacing:2px;text-transform:uppercase;font-size:.8rem;transition:all .3s;animation:fadeDown 1.2s ease-out .4s both}
+.hero .cta:hover{background:var(--accent);color:var(--primary)}
+.rating-badge{margin-top:1.5rem;color:rgba(255,255,255,.5);font-size:.85rem;letter-spacing:1px;animation:fadeDown 1.4s ease-out .6s both}
+.rating-badge .stars{color:var(--accent)}
+
+/* RAZOR LINE DIVIDER */
+.razor-line{position:relative;height:40px;display:flex;align-items:center;justify-content:center;background:var(--bg)}
+.razor-line::before{content:'';width:40%;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+.razor-line::after{content:'✂';position:absolute;color:var(--accent);font-size:1.2rem;background:var(--bg);padding:0 1rem}
+.razor-dark{background:var(--primary)}
+.razor-dark::after{background:var(--primary)}
+
+section{padding:5rem 5%}
+.stitle{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.6rem);text-align:center;margin-bottom:.5rem;letter-spacing:2px;text-transform:uppercase}
+.ssub{text-align:center;color:var(--muted);margin-bottom:3rem;font-size:.9rem;letter-spacing:1px}
+
+.servicios{background:var(--primary);color:#fff}
+.servicios .stitle{color:#fff}
+.servicios .ssub{color:rgba(255,255,255,.5)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:1100px;margin:0 auto}
+.card{background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.2);padding:2.5rem 2rem;text-align:center;transition:transform .3s,border-color .3s}
+.card:hover{transform:translateY(-5px);border-color:var(--accent)}
+.card-icon{font-size:2.2rem;margin-bottom:1rem}
+.card h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;margin-bottom:.7rem;color:var(--accent);letter-spacing:1px;text-transform:uppercase}
+.card p{color:rgba(255,255,255,.5);font-size:.9rem;line-height:1.6}
+
+.galeria{background:var(--bg)}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;max-width:1100px;margin:0 auto}
+.gallery-grid img{width:100%;height:300px;object-fit:cover;filter:grayscale(.3);transition:filter .4s,transform .4s}
+.gallery-grid img:hover{filter:grayscale(0);transform:scale(1.02)}
+
+.sobre-nosotros{background:#fff}
+.about-wrap{max-width:750px;margin:0 auto;text-align:center}
+.about-wrap p{color:var(--muted);margin-bottom:1.2rem;font-size:1.05rem}
+
+.contacto{background:var(--bg)}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;max-width:900px;margin:0 auto}
+.contact-item{text-align:center;padding:2rem;border:1px solid var(--border)}
+.contact-item .label{color:var(--accent);font-weight:600;text-transform:uppercase;font-size:.75rem;letter-spacing:2px;margin-bottom:.5rem}
+.contact-item .value{font-size:1.1rem}
+.contact-item a{color:var(--text);text-decoration:none}
+.contact-item a:hover{color:var(--accent)}
+
+footer{text-align:center;padding:2.5rem 5%;background:var(--primary);color:rgba(255,255,255,.4);font-size:.85rem;letter-spacing:1px}
+
+@keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:768px){
+  nav ul{display:none}
+  .gallery-grid{grid-template-columns:1fr}
+  section{padding:3.5rem 6%}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">[NOMBRE_NEGOCIO]</div>
+  <ul>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#sobre-nosotros">Nosotros</a></li>
+    <li><a href="#contacto">Cita Previa</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>[NOMBRE_NEGOCIO]</h1>
+    <p class="tagline">[TAGLINE]</p>
+    <a href="#contacto" class="cta">Pide Tu Cita</a>
+    <div class="rating-badge">
+      <span class="stars">★★★★★</span> [RATING] — [NUM_REVIEWS] reseñas en Google
+    </div>
+  </div>
+</section>
+
+<section class="servicios" id="servicios">
+  <div class="razor-line razor-dark"></div>
+  <h2 class="stitle">Servicios</h2>
+  <p class="ssub">Precisión, estilo y atención al detalle</p>
+  <div class="cards">
+    <div class="card"><div class="card-icon">💈</div><h3>Corte Clásico</h3><p>Corte a tijera o máquina con acabado perfilado a navaja. Incluye lavado y styling con productos premium.</p></div>
+    <div class="card"><div class="card-icon">🪒</div><h3>Afeitado a Navaja</h3><p>Ritual completo con toallas calientes, aceite pre-afeitado y bálsamo hidratante. La experiencia barbería tradicional.</p></div>
+    <div class="card"><div class="card-icon">✨</div><h3>Color y Tratamiento</h3><p>Coloración profesional, mechas y tratamientos capilares de queratina. Resultados naturales y duraderos.</p></div>
+  </div>
+</section>
+
+<div class="razor-line"></div>
+
+<section class="galeria" id="galeria">
+  <h2 class="stitle">Galería</h2>
+  <p class="ssub">Nuestro trabajo habla por sí solo</p>
+  <div class="gallery-grid">
+    <img src="https://source.unsplash.com/600x400/?barber,haircut" alt="Corte clásico" loading="lazy">
+    <img src="https://source.unsplash.com/600x400/?barbershop,interior" alt="Interior barbería" loading="lazy">
+    <img src="https://source.unsplash.com/600x400/?hairstyle,men" alt="Estilo moderno" loading="lazy">
+  </div>
+</section>
+
+<section class="sobre-nosotros" id="sobre-nosotros">
+  <h2 class="stitle">Sobre Nosotros</h2>
+  <p class="ssub">Filo editorial desde 2015</p>
+  <div class="about-wrap">
+    <p>Somos un estudio de peluquería y barbería con una visión clara: cada cliente merece un corte que refleje su personalidad. Combinamos técnicas clásicas con tendencias actuales.</p>
+    <p>Nuestro espacio está diseñado para que te relajes y disfrutes de la experiencia. Sin prisas, con productos de primera línea y una atención completamente personalizada.</p>
+  </div>
+</section>
+
+<div class="razor-line"></div>
+
+<section class="contacto" id="contacto">
+  <h2 class="stitle">Cita Previa</h2>
+  <p class="ssub">Reserva tu hora y evita esperas</p>
+  <div class="contact-grid">
+    <div class="contact-item"><div class="label">Teléfono</div><div class="value"><a href="tel:[TELEFONO]">[TELEFONO]</a></div></div>
+    <div class="contact-item"><div class="label">Dirección</div><div class="value">[DIRECCION]</div></div>
+    <div class="contact-item"><div class="label">Horario</div><div class="value">Lun–Sáb: 10:00 – 20:00</div></div>
+  </div>
+</section>
+
+<footer><p>&copy; 2025 [NOMBRE_NEGOCIO]. Valencia, España.</p></footer>
+
+<script>
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}})},{threshold:.15});
+document.querySelectorAll('.card,.gallery-grid img,.contact-item').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(30px)';el.style.transition='opacity .6s ease,transform .6s ease';obs.observe(el)});
+</script>
+</body>
+</html>

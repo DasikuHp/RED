@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="[NOMBRE_NEGOCIO] — [TAGLINE]. Reformas y servicios en Valencia.">
+<title>[NOMBRE_NEGOCIO] — Reformas &amp; Servicios</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;600;700&display=swap');
+:root{
+  --primary:#2b2b2b;--accent:#e85d04;--bg:#f5f5f5;
+  --text:#1a1a1a;--muted:#666;--card:#fff;
+  --border:rgba(232,93,4,.2);--accent-light:#fde8d8;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+
+nav{position:fixed;top:0;width:100%;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1rem 5%;background:rgba(43,43,43,.97);backdrop-filter:blur(10px)}
+nav .logo{font-family:'Montserrat',sans-serif;font-size:1.3rem;color:#fff;font-weight:800}
+nav .logo span{color:var(--accent)}
+nav ul{list-style:none;display:flex;gap:2rem}
+nav a{text-decoration:none;color:rgba(255,255,255,.6);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;transition:color .3s}
+nav a:hover{color:var(--accent)}
+
+/* BEFORE/AFTER HERO SPLIT */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.hero-bg-left,.hero-bg-right{position:absolute;top:0;bottom:0;width:50%}
+.hero-bg-left{left:0;background:url('https://source.unsplash.com/800x600/?old,house,interior') center/cover no-repeat;filter:grayscale(.8) brightness(.5)}
+.hero-bg-right{right:0;background:url('https://source.unsplash.com/800x600/?modern,renovation,home') center/cover no-repeat;filter:brightness(.6)}
+.hero-split-line{position:absolute;top:0;bottom:0;left:50%;width:4px;background:var(--accent);z-index:3;box-shadow:0 0 20px rgba(232,93,4,.5)}
+.hero-split-line::before{content:'ANTES';position:absolute;top:50%;left:-60px;transform:translateY(-50%);color:rgba(255,255,255,.5);font-family:'Montserrat',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.hero-split-line::after{content:'DESPUÉS';position:absolute;top:50%;right:-70px;transform:translateY(-50%);color:rgba(255,255,255,.5);font-family:'Montserrat',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.hero-content{position:relative;z-index:4;padding:1rem;max-width:800px}
+.hero h1{font-family:'Montserrat',sans-serif;font-size:clamp(2.4rem,5.5vw,4.5rem);font-weight:900;color:#fff;text-transform:uppercase;letter-spacing:2px;margin-bottom:.5rem;animation:fadeDown .8s ease-out}
+.hero .tagline{font-size:clamp(1rem,1.8vw,1.2rem);color:rgba(255,255,255,.7);font-weight:300;margin-bottom:1.5rem;animation:fadeDown 1s ease-out .2s both}
+.hero .cta{display:inline-block;padding:.9rem 2.5rem;background:var(--accent);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1.5px;font-size:.85rem;transition:transform .3s,box-shadow .3s;animation:fadeDown 1.2s ease-out .4s both}
+.hero .cta:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(232,93,4,.45)}
+.rating-badge{margin-top:1.5rem;color:rgba(255,255,255,.6);font-size:.9rem;animation:fadeDown 1.4s ease-out .6s both}
+.rating-badge .stars{color:var(--accent)}
+
+section{padding:5rem 5%}
+.stitle{font-family:'Montserrat',sans-serif;font-size:clamp(1.8rem,3vw,2.5rem);text-align:center;margin-bottom:.5rem;font-weight:800;color:var(--primary);text-transform:uppercase;letter-spacing:1px}
+.ssub{text-align:center;color:var(--muted);margin-bottom:3rem;font-size:.95rem}
+
+.servicios{background:#fff}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:1100px;margin:0 auto}
+.card{background:var(--bg);border-top:4px solid var(--accent);padding:2.5rem 2rem;text-align:center;transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-5px);box-shadow:0 10px 35px rgba(232,93,4,.12)}
+.card-icon{font-size:2.4rem;margin-bottom:1rem}
+.card h3{font-family:'Montserrat',sans-serif;font-size:1.15rem;margin-bottom:.7rem;color:var(--primary);font-weight:700;text-transform:uppercase}
+.card p{color:var(--muted);font-size:.92rem;line-height:1.6}
+
+.galeria{background:var(--bg)}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:1100px;margin:0 auto}
+.gallery-grid img{width:100%;height:280px;object-fit:cover;transition:transform .4s}
+.gallery-grid img:hover{transform:scale(1.03)}
+
+.sobre-nosotros{background:#fff}
+.about-wrap{max-width:800px;margin:0 auto;text-align:center}
+.about-wrap p{color:var(--muted);margin-bottom:1.2rem;font-size:1.05rem}
+
+.contacto{background:var(--accent-light)}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;max-width:900px;margin:0 auto}
+.contact-item{text-align:center;padding:2rem;background:#fff;box-shadow:0 2px 15px rgba(0,0,0,.06)}
+.contact-item .label{color:var(--accent);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;font-size:.75rem;letter-spacing:2px;margin-bottom:.5rem}
+.contact-item .value{font-size:1.1rem;font-weight:500}
+.contact-item a{color:var(--text);text-decoration:none}
+.contact-item a:hover{color:var(--accent)}
+
+footer{text-align:center;padding:2.5rem 5%;background:var(--primary);color:rgba(255,255,255,.4);font-size:.85rem}
+
+@keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:768px){
+  nav ul{display:none}
+  .gallery-grid{grid-template-columns:1fr}
+  section{padding:3.5rem 6%}
+  .hero-split-line::before,.hero-split-line::after{display:none}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">[NOMBRE_NEGOCIO]<span>.</span></div>
+  <ul>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#galeria">Proyectos</a></li>
+    <li><a href="#sobre-nosotros">Nosotros</a></li>
+    <li><a href="#contacto">Presupuesto</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg-left"></div>
+  <div class="hero-bg-right"></div>
+  <div class="hero-split-line"></div>
+  <div class="hero-content">
+    <h1>[NOMBRE_NEGOCIO]</h1>
+    <p class="tagline">[TAGLINE]</p>
+    <a href="#contacto" class="cta">Pide Presupuesto Gratis</a>
+    <div class="rating-badge"><span class="stars">★★★★★</span> [RATING] — [NUM_REVIEWS] reseñas en Google</div>
+  </div>
+</section>
+
+<section class="servicios" id="servicios">
+  <h2 class="stitle">Servicios</h2>
+  <p class="ssub">Reformas integrales con presupuesto cerrado y plazos garantizados</p>
+  <div class="cards">
+    <div class="card"><div class="card-icon">🏠</div><h3>Reforma Integral</h3><p>Transformamos tu vivienda de principio a fin. Albañilería, fontanería, electricidad, pintura y acabados. Un solo interlocutor, sin sorpresas.</p></div>
+    <div class="card"><div class="card-icon">🚿</div><h3>Baños y Cocinas</h3><p>Diseño y ejecución de baños y cocinas modernas. Alicatado, grifería, mobiliario e iluminación. Resultados que superan expectativas.</p></div>
+    <div class="card"><div class="card-icon">🔌</div><h3>Instalaciones</h3><p>Electricidad, fontanería, climatización y carpintería. Boletines oficiales, certificados y mano de obra cualificada con garantía.</p></div>
+  </div>
+</section>
+
+<section class="galeria" id="galeria">
+  <h2 class="stitle">Proyectos</h2>
+  <p class="ssub">Reformas reales ejecutadas en Valencia</p>
+  <div class="gallery-grid">
+    <img src="https://source.unsplash.com/600x400/?renovation,bathroom" alt="Reforma de baño" loading="lazy">
+    <img src="https://source.unsplash.com/600x400/?kitchen,modern,renovation" alt="Cocina reformada" loading="lazy">
+    <img src="https://source.unsplash.com/600x400/?home,interior,design" alt="Salón reformado" loading="lazy">
+  </div>
+</section>
+
+<section class="sobre-nosotros" id="sobre-nosotros">
+  <h2 class="stitle">Sobre Nosotros</h2>
+  <p class="ssub">Naranja directo — sin rodeos, sin sorpresas</p>
+  <div class="about-wrap">
+    <p>Más de 12 años ejecutando reformas en Valencia y alrededores. Nuestro equipo propio de albañiles, electricistas y fontaneros garantiza coordinación perfecta y plazos reales.</p>
+    <p>Trabajamos con presupuesto cerrado desde el primer día. Sin costes ocultos, sin imprevistos inventados. Transparencia total y garantía por escrito en cada proyecto.</p>
+  </div>
+</section>
+
+<section class="contacto" id="contacto">
+  <h2 class="stitle">Presupuesto Sin Compromiso</h2>
+  <p class="ssub">Cuéntanos tu proyecto y te llamamos en 24h</p>
+  <div class="contact-grid">
+    <div class="contact-item"><div class="label">Teléfono</div><div class="value"><a href="tel:[TELEFONO]">[TELEFONO]</a></div></div>
+    <div class="contact-item"><div class="label">Dirección</div><div class="value">[DIRECCION]</div></div>
+    <div class="contact-item"><div class="label">Horario</div><div class="value">Lun–Vie: 8:00 – 19:00</div></div>
+  </div>
+</section>
+
+<footer><p>&copy; 2025 [NOMBRE_NEGOCIO]. Valencia, España.</p></footer>
+<script>
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}})},{threshold:.15});
+document.querySelectorAll('.card,.gallery-grid img,.contact-item').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(30px)';el.style.transition='opacity .6s ease,transform .6s ease';obs.observe(el)});
+</script>
+</body>
+</html>

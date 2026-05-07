@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="[NOMBRE_NEGOCIO] — [TAGLINE]. Academia y centro de formación en Valencia.">
+<title>[NOMBRE_NEGOCIO] — Academia</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap');
+:root{
+  --primary:#1d2d44;--accent:#f0a500;--bg:#f9f9f9;
+  --text:#1a2a3a;--muted:#5a6a7a;--card:#fff;
+  --border:rgba(240,165,0,.2);--accent-light:#fff4d6;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Roboto',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+
+nav{position:fixed;top:0;width:100%;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1rem 5%;background:rgba(29,45,68,.97);backdrop-filter:blur(10px)}
+nav .logo{font-family:'Poppins',sans-serif;font-size:1.3rem;color:#fff;font-weight:700}
+nav .logo span{color:var(--accent)}
+nav ul{list-style:none;display:flex;gap:2rem}
+nav a{text-decoration:none;color:rgba(255,255,255,.6);font-size:.85rem;font-weight:500;transition:color .3s}
+nav a:hover{color:var(--accent)}
+
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:url('https://source.unsplash.com/1200x600/?education,classroom,learning') center/cover no-repeat}
+.hero::before{content:'';position:absolute;inset:0;background:rgba(29,45,68,.72)}
+.hero-content{position:relative;z-index:2;padding:1rem;max-width:800px}
+.hero h1{font-family:'Poppins',sans-serif;font-size:clamp(2.4rem,5.5vw,4.5rem);font-weight:800;color:#fff;margin-bottom:.5rem;animation:fadeDown .8s ease-out}
+.hero .tagline{font-size:clamp(1rem,1.8vw,1.2rem);color:rgba(255,255,255,.65);font-weight:300;margin-bottom:1.5rem;animation:fadeDown 1s ease-out .2s both}
+.hero .cta{display:inline-block;padding:.9rem 2.5rem;background:var(--accent);color:var(--primary);font-family:'Poppins',sans-serif;font-weight:700;text-decoration:none;border-radius:8px;font-size:.85rem;transition:transform .3s,box-shadow .3s;animation:fadeDown 1.2s ease-out .4s both}
+.hero .cta:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(240,165,0,.4)}
+.rating-badge{margin-top:1.5rem;color:rgba(255,255,255,.6);font-size:.9rem;animation:fadeDown 1.4s ease-out .6s both}
+.rating-badge .stars{color:var(--accent)}
+
+/* PROGRESS BARS */
+.progress-section{background:var(--primary);padding:3rem 5%}
+.progress-section h3{font-family:'Poppins',sans-serif;text-align:center;color:#fff;font-size:1.1rem;margin-bottom:2rem;font-weight:600;letter-spacing:1px;text-transform:uppercase}
+.progress-bars{max-width:700px;margin:0 auto}
+.progress-item{margin-bottom:1.5rem}
+.progress-label{display:flex;justify-content:space-between;color:rgba(255,255,255,.7);font-size:.85rem;margin-bottom:.4rem;font-weight:500}
+.progress-track{height:8px;background:rgba(255,255,255,.1);border-radius:50px;overflow:hidden}
+.progress-fill{height:100%;border-radius:50px;background:linear-gradient(90deg,var(--accent),#f4c430);width:0;animation:fillBar 1.5s ease-out forwards}
+.progress-item:nth-child(1) .progress-fill{animation-delay:.2s}
+.progress-item:nth-child(2) .progress-fill{animation-delay:.4s}
+.progress-item:nth-child(3) .progress-fill{animation-delay:.6s}
+.progress-item:nth-child(4) .progress-fill{animation-delay:.8s}
+@keyframes fillBar{to{width:var(--fill)}}
+
+section{padding:5rem 5%}
+.stitle{font-family:'Poppins',sans-serif;font-size:clamp(1.8rem,3vw,2.5rem);text-align:center;margin-bottom:.5rem;font-weight:800;color:var(--primary)}
+.ssub{text-align:center;color:var(--muted);margin-bottom:3rem;font-size:.95rem}
+
+.servicios{background:#fff}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:1100px;margin:0 auto}
+.card{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:2.5rem 2rem;text-align:center;transition:transform .3s,box-shadow .3s;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--accent)}
+.card:hover{transform:translateY(-5px);box-shadow:0 10px 35px rgba(240,165,0,.12)}
+.card-icon{font-size:2.4rem;margin-bottom:1rem}
+.card h3{font-family:'Poppins',sans-serif;font-size:1.15rem;margin-bottom:.7rem;color:var(--primary);font-weight:700}
+.card p{color:var(--muted);font-size:.92rem;line-height:1.6}
+
+.galeria{background:var(--bg)}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:1100px;margin:0 auto}
+.gallery-grid img{width:100%;height:280px;object-fit:cover;border-radius:10px;transition:transform .4s}
+.gallery-grid img:hover{transform:scale(1.03)}
+
+.sobre-nosotros{background:#fff}
+.about-wrap{max-width:800px;margin:0 auto;text-align:center}
+.about-wrap p{color:var(--muted);margin-bottom:1.2rem;font-size:1.05rem}
+
+.contacto{background:var(--accent-light)}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;max-width:900px;margin:0 auto}
+.contact-item{text-align:center;padding:2rem;background:#fff;border-radius:12px;box-shadow:0 2px 15px rgba(0,0,0,.05)}
+.contact-item .label{color:var(--accent);font-family:'Poppins',sans-serif;font-weight:700;text-transform:uppercase;font-size:.75rem;letter-spacing:2px;margin-bottom:.5rem}
+.contact-item .value{font-size:1.1rem;font-weight:500}
+.contact-item a{color:var(--text);text-decoration:none}
+.contact-item a:hover{color:var(--accent)}
+
+footer{text-align:center;padding:2.5rem 5%;background:var(--primary);color:rgba(255,255,255,.4);font-size:.85rem}
+
+@keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:768px){nav ul{display:none}.gallery-grid{grid-template-columns:1fr}section{padding:3.5rem 6%}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">[NOMBRE_NEGOCIO]<span>.</span></div>
+  <ul>
+    <li><a href="#servicios">Cursos</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#sobre-nosotros">Nosotros</a></li>
+    <li><a href="#contacto">Matrícula</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>[NOMBRE_NEGOCIO]</h1>
+    <p class="tagline">[TAGLINE]</p>
+    <a href="#contacto" class="cta">Infórmate Ahora</a>
+    <div class="rating-badge"><span class="stars">★★★★★</span> [RATING] — [NUM_REVIEWS] reseñas en Google</div>
+  </div>
+</section>
+
+<div class="progress-section">
+  <h3>Tasa de aprobados de nuestros alumnos</h3>
+  <div class="progress-bars">
+    <div class="progress-item"><div class="progress-label"><span>Inglés — Certificaciones B2/C1</span><span>94%</span></div><div class="progress-track"><div class="progress-fill" style="--fill:94%"></div></div></div>
+    <div class="progress-item"><div class="progress-label"><span>Matemáticas — Selectividad</span><span>91%</span></div><div class="progress-track"><div class="progress-fill" style="--fill:91%"></div></div></div>
+    <div class="progress-item"><div class="progress-label"><span>Valenciano — Junta Qualificadora</span><span>88%</span></div><div class="progress-track"><div class="progress-fill" style="--fill:88%"></div></div></div>
+    <div class="progress-item"><div class="progress-label"><span>Oposiciones — Administración</span><span>82%</span></div><div class="progress-track"><div class="progress-fill" style="--fill:82%"></div></div></div>
+  </div>
+</div>
+
+<section class="servicios" id="servicios">
+  <h2 class="stitle">Nuestros Cursos</h2>
+  <p class="ssub">Formación personalizada para alcanzar tus objetivos</p>
+  <div class="cards">
+    <div class="card"><div class="card-icon">🌍</div><h3>Idiomas</h3><p>Inglés, francés y valenciano. Grupos reducidos, profesores nativos y preparación oficial de exámenes Cambridge, DELF y JQCV.</p></div>
+    <div class="card"><div class="card-icon">📐</div><h3>Refuerzo Escolar</h3><p>Primaria, ESO y Bachillerato. Matemáticas, física, lengua y más. Método propio basado en comprensión, no en memorización.</p></div>
+    <div class="card"><div class="card-icon">📋</div><h3>Oposiciones</h3><p>Preparación intensiva para cuerpos de la administración pública. Temarios actualizados, simulacros de examen y tutorías personalizadas.</p></div>
+  </div>
+</section>
+
+<section class="galeria" id="galeria">
+  <h2 class="stitle">Galería</h2>
+  <p class="ssub">Nuestro espacio de aprendizaje</p>
+  <div class="gallery-grid">
+    <img src="https://source.unsplash.com/600x400/?classroom,students" alt="Aula de formación" loading="lazy">
+    <img src="https://source.unsplash.com/600x400/?library,study" alt="Zona de estudio" loading="lazy">
+    <img src="https://source.unsplash.com/600x400/?teaching,whiteboard" alt="Clase en grupo" loading="lazy">
+  </div>
+</section>
+
+<section class="sobre-nosotros" id="sobre-nosotros">
+  <h2 class="stitle">Sobre Nosotros</h2>
+  <p class="ssub">Potencial contenido, resultados reales</p>
+  <div class="about-wrap">
+    <p>Somos una academia con más de una década formando alumnos en Valencia. Nuestro equipo de profesores cualificados combina experiencia docente con pasión por la enseñanza.</p>
+    <p>Creemos en grupos reducidos, atención personalizada y un método que se adapta al ritmo de cada alumno. Porque cada persona aprende de forma diferente.</p>
+  </div>
+</section>
+
+<section class="contacto" id="contacto">
+  <h2 class="stitle">Matrícula Abierta</h2>
+  <p class="ssub">Consulta horarios y plazas disponibles</p>
+  <div class="contact-grid">
+    <div class="contact-item"><div class="label">Teléfono</div><div class="value"><a href="tel:[TELEFONO]">[TELEFONO]</a></div></div>
+    <div class="contact-item"><div class="label">Dirección</div><div class="value">[DIRECCION]</div></div>
+    <div class="contact-item"><div class="label">Horario</div><div class="value">Lun–Vie: 9:00 – 21:00</div></div>
+  </div>
+</section>
+
+<footer><p>&copy; 2025 [NOMBRE_NEGOCIO]. Valencia, España.</p></footer>
+<script>
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}})},{threshold:.15});
+document.querySelectorAll('.card,.gallery-grid img,.contact-item').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(30px)';el.style.transition='opacity .6s ease,transform .6s ease';obs.observe(el)});
+/* Trigger progress bars on scroll */
+const pobs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible')}})},{threshold:.3});
+document.querySelectorAll('.progress-section').forEach(el=>pobs.observe(el));
+</script>
+</body>
+</html>
